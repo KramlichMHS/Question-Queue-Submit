@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="refresh" content="30">
+    <link rel="stylesheet" href="{{ url_for('static', filename="style.css") }}">
+  </head>
+  <body>
+    <div class="all">
+      <h1>The Queue</h1>
+      <table border="1">
+        <tr>
+          <th>Seat</th>
+          <th>Status</th>
+        </tr>
+        {% for seat in seats %}
+          {% if seats[seat] != "" %}
+            <tr>
+              <td>{{ seat }}</td>
+              <td>{{ seats[seat] }}</td>
+            </tr>
+          {% endif %}
+        {% endfor %}
+      </table>
+      <br>
+      <a href={{ url_for('form') }}><button>Form</button></a>
+      <br>
+      <form method="post">
+        <input type="submit" name="clear" value="Clear">
+      </form>
+    </div>
+  </body>
+</html>
